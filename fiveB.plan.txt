@@ -1,0 +1,8 @@
+
+
+                                          QUERY PLAN                                           
+-----------------------------------------------------------------------------------------------
+ Index Scan using stl_pur_ind_when on purchase p  (cost=0.43..463830.05 rows=5836785 width=22)
+   Filter: (custid < 55929)
+(2 rows)
+

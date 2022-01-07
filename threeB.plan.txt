@@ -1,0 +1,10 @@
+
+                                  QUERY PLAN                                  
+------------------------------------------------------------------------------
+ Hash Join  (cost=3377.00..310816.81 rows=9997204 width=22)
+   Hash Cond: (p.custid = c.custid)
+   ->  Seq Scan on purchase p  (cost=0.00..163649.04 rows=9997204 width=22)
+   ->  Hash  (cost=1736.00..1736.00 rows=100000 width=4)
+         ->  Seq Scan on customer c  (cost=0.00..1736.00 rows=100000 width=4)
+(5 rows)
+

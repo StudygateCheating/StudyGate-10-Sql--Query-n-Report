@@ -1,0 +1,11 @@
+
+                                      QUERY PLAN                                      
+--------------------------------------------------------------------------------------
+ GroupAggregate  (cost=5.37..473.04 rows=120 width=12)
+   Group Key: custid
+   ->  Bitmap Heap Scan on purchase  (cost=5.37..471.24 rows=120 width=8)
+         Recheck Cond: (custid = 55927)
+         ->  Bitmap Index Scan on stl_purchase_pk  (cost=0.00..5.33 rows=120 width=0)
+               Index Cond: (custid = 55927)
+(6 rows)
+

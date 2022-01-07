@@ -1,0 +1,11 @@
+  QUERY PLAN                                                      
+----------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=1000.46..543539.67 rows=82679 width=12)
+   Group Key: custid
+   ->  Gather Merge  (cost=1000.46..541886.09 rows=165358 width=12)
+         Workers Planned: 2
+         ->  Partial GroupAggregate  (cost=0.43..521799.65 rows=82679 width=12)
+               Group Key: custid
+               ->  Parallel Index Scan using stl_purchase_pk on purchase  (cost=0.43..500145.35 rows=4165502 width=8)
+(7 rows)
+

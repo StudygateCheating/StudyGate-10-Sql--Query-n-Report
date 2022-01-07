@@ -1,0 +1,12 @@
+
+                                         QUERY PLAN                                          
+---------------------------------------------------------------------------------------------
+ Nested Loop  (cost=11.02..2511.97 rows=241 width=22)
+   ->  Bitmap Heap Scan on purchase p  (cost=10.73..933.26 rows=241 width=22)
+         Recheck Cond: (custid = ANY ('{55927,55929}'::integer[]))
+         ->  Bitmap Index Scan on stl_purchase_pk  (cost=0.00..10.67 rows=241 width=0)
+               Index Cond: (custid = ANY ('{55927,55929}'::integer[]))
+   ->  Index Only Scan using stl_customer_pk on customer c  (cost=0.29..6.55 rows=1 width=4)
+         Index Cond: (custid = p.custid)
+(7 rows)
+

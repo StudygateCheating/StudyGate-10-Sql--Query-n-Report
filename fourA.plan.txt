@@ -1,0 +1,16 @@
+      QUERY PLAN                                              
+------------------------------------------------------------------------------------------------------
+ Gather Merge  (cost=823999.49..1796017.82 rows=8331004 width=26)
+   Workers Planned: 2
+   ->  Sort  (cost=822999.47..833413.22 rows=4165502 width=26)
+         Sort Key: c.province
+         ->  Hash Join  (cost=5239.00..165669.29 rows=4165502 width=26)
+               Hash Cond: (p.bookid = b.bookid)
+               ->  Hash Join  (cost=3670.00..153164.93 rows=4165502 width=30)
+                     Hash Cond: (p.custid = c.custid)
+                     ->  Parallel Seq Scan on purchase p  (cost=0.00..105332.02 rows=4165502 width=8)
+                     ->  Hash  (cost=1736.00..1736.00 rows=100000 width=26)
+                           ->  Seq Scan on customer c  (cost=0.00..1736.00 rows=100000 width=26)
+               ->  Hash  (cost=944.00..944.00 rows=50000 width=4)
+                     ->  Seq Scan on book b  (cost=0.00..944.00 rows=50000 width=4)
+(13 rows)
